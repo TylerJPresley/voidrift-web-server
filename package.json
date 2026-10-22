@@ -1,0 +1,57 @@
+{
+  "name": "voidrift-web-server",
+  "version": "0.1.0",
+  "description": "VoidRift Web UI backend — the SDK host: auth, per-user authorization, session ownership, the scoped event relay, transport security, and the HTTP + WebSocket surface (web-blueprint.md).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run",
+    "coverage": "vitest --run --coverage"
+  },
+  "dependencies": {
+    "@fastify/helmet": "13.1.2",
+    "@fastify/rate-limit": "11.2.1",
+    "@fastify/websocket": "11.3.4",
+    "fastify": "5.12.5",
+    "jose": "6.2.12",
+    "pg": "8.23.1",
+    "ws": "8.22.0",
+    "zod": "4.6.5",
+    "@voidrift/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@langchain/core": "1.2.17",
+    "@langchain/langgraph": "1.4.21",
+    "@langchain/langgraph-checkpoint": "1.1.6",
+    "@types/node": "26.6.5",
+    "@types/pg": "8.23.1",
+    "@types/ws": "8.18.2",
+    "@vitest/coverage-v8": "5.0.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  },
+  "voidrift": {
+    "kind": "product"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerJPresley/voidrift-web-server.git"
+  }
+}
