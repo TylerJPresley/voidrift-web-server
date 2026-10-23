@@ -23,7 +23,8 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "vitest --run",
-    "coverage": "vitest --run --coverage"
+    "coverage": "vitest --run --coverage",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@fastify/helmet": "13.1.2",
@@ -45,7 +46,10 @@
     "@types/ws": "8.18.2",
     "@vitest/coverage-v8": "5.0.3",
     "typescript": "5.9.3",
-    "vitest": "5.0.3"
+    "vitest": "5.0.3",
+    "eslint": "10.12.0",
+    "eslint-config-prettier": "10.1.8",
+    "typescript-eslint": "8.71.1"
   },
   "voidrift": {
     "kind": "product"
@@ -53,5 +57,16 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TylerJPresley/voidrift-web-server.git"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/TylerJPresley/voidrift-web-server/issues"
+  },
+  "homepage": "https://github.com/TylerJPresley/voidrift-web-server#readme",
+  "keywords": [
+    "voidrift",
+    "web",
+    "backend",
+    "sdk",
+    "host"
+  ]
 }
