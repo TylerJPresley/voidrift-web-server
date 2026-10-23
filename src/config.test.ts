@@ -65,18 +65,18 @@ describe("§1.5/§10 config", () => {
 
   describe("§1.5 — the web backend never exposes or calls session.setMode (vibe is CLI-only)", () => {
     it("no web-server source calls .setMode / enters vibe (modes stay a CLI concern, core §2.7)", async () => {
-      const { readFileSync, readdirSync, statSync } = await import("node:fs");
-      const { join, dirname } = await import("node:path");
-      const { fileURLToPath } = await import("node:url");
-      const srcDir = dirname(fileURLToPath(import.meta.url));
+      const fs = await import("node:fs");
+      const path = await import("node:path");
+      const url = await import("node:url");
+      const srcDir = path.dirname(url.fileURLToPath(import.meta.url));
       const walk = (dir: string): string[] =>
-        readdirSync(dir).flatMap((e) => {
-          const p = join(dir, e);
-          return statSync(p).isDirectory() ? walk(p) : [p];
+        fs.readdirSync(dir).flatMap((e) => {
+          const p = path.join(dir, e);
+          return fs.statSync(p).isDirectory() ? walk(p) : [p];
         });
       const files = walk(srcDir).filter((f) => /\.tsx?$/.test(f) && !/\.test\.tsx?$/.test(f));
       for (const f of files) {
-        const text = readFileSync(f, "utf8");
+        const text = fs.readFileSync(f, "utf8");
         // The backend never relays `setMode` and never selects `vibe`; a remote,
         // multi-user server never runs with approvals disabled (§1.5 step 2).
         expect(text, f).not.toMatch(/\.setMode\s*\(/);
