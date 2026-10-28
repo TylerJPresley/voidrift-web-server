@@ -35,7 +35,7 @@
     "jose": "6.2.12",
     "pg": "8.23.1",
     "ws": "8.22.0",
-    "zod": "4.6.5",
+    "zod": "4.6.7",
     "@voidrift/core": "^0.1.0"
   },
   "devDependencies": {
